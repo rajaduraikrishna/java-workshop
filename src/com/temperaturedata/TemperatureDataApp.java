@@ -9,7 +9,7 @@ public class TemperatureDataApp {
         System.out.println("Tell me what to do");
     }
     public static void main(String[] args) {
-        Building building = new Building("Navigator", 120, 27000);
+        Building building = new Building();
         Building.Parking parking = new Building.Parking();
         parking.print();
         TemperatureDataApp.doSomething();
