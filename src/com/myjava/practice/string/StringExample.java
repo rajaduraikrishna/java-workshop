@@ -10,6 +10,5 @@ public class StringExample {
         System.out.println(sentance.length());
         String newSentance = sentance.replace(" ","");
         System.out.println(newSentance.length());
-        newSentance.
     }
 }
