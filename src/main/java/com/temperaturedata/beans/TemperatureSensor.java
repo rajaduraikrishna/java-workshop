@@ -1,8 +1,13 @@
 package com.temperaturedata.beans;
 
+import com.myjava.practice.exception.TemperatureRangeException;
+
 public class TemperatureSensor implements  Sensor {
     private float temperatureValue;
-    public TemperatureSensor(float aTemperatureValue) {
+    public TemperatureSensor(float aTemperatureValue) throws TemperatureRangeException {
+        if (aTemperatureValue < -89 || aTemperatureValue > 58) {
+            throw new TemperatureRangeException("Temperature out of the range for earth");
+        }
         temperatureValue = aTemperatureValue;
     }
     public float getReading() {
@@ -34,7 +39,7 @@ public class TemperatureSensor implements  Sensor {
             return this.temperatureValue == myObj.temperatureValue;
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TemperatureRangeException {
         TemperatureSensor temperatureSensor = new TemperatureSensor(32);
         System.out.println(temperatureSensor.getReading());
         System.out.println(temperatureSensor.getReading(ReadingUnit.F));
